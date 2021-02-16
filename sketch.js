@@ -49,54 +49,59 @@ function draw() {
   drawFunction();
 
   // print text on screen
-  text("Press 1-5 to change mood", width/2+100, height - gTextOffset - 40);
+  text("Press 1-5 to change mood", width/2+30, height - gTextOffset - 40);
 }
 
 //========= TEMPLATE: modify these functions, INSIDE the function blocks only =========
 
 //-- drawOne() will draw the image at index 0 from the array
 drawOne = function() {
-   image(images[0],width/2, height/2);
    background(107, 57, 57);
+   image(images[0],width/2, height/2);
+   
 
    fill(255, 255, 255);
-   text("Stress", width/2+100, height - gTextOffset);
+   text("Stress", width/2+30, height - gTextOffset);
 }
 
 //-- drawTwo() will draw the image at index 1 from the array
 drawTwo = function() {
-   image(images[1],width/2, height/2);
    background(16, 90, 130);
+   image(images[1],width/2, height/2);
+   
 
    fill(255, 255, 255);
-   text("Sleepy", width/2+100, height - gTextOffset);
+   text("Sleepy", width/2+30, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 2 from the array
 drawThree = function() {
-   image(images[2],width/2, height/2);
    background(100, 101, 113);
+   image(images[2],width/2, height/2);
+   
 
    fill(255, 255, 255);
-   text("Clam", width/2+100, height - gTextOffset);
+   text("Clam", width/2+30, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 3 from the array
 drawFour = function() {
+   background(232, 222, 154);
    image(images[3],width/2, height/2);
-   background(236, 236, 194);
+ 
 
    fill(255, 255, 255);
-   text("Craving", width/2+100, height - gTextOffset);
+   text("Craving", width/2+30, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 4 from the array
 drawFive = function() {
-   image(images[4],width/2, height/2);
    background(237, 191, 154);
+   image(images[4],width/2, height/2);
+   
 
    fill(255, 255, 255);
-   text("Happy", width/2+100, height - gTextOffset);
+   text("Happy", width/2+30, height - gTextOffset);
 }
 
 
