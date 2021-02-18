@@ -23,7 +23,7 @@ var gTextOffset = 20;
 function preload() {
   images[0] = loadImage('assets/stress.png');
   images[1] = loadImage('assets/sleepy.png');
-  images[2] = loadImage('assets/clam.png');
+  images[2] = loadImage('assets/calm.png');
   images[3] = loadImage('assets/craving.png');
   images[4] = loadImage('assets/happy.png');
 }
@@ -81,7 +81,7 @@ drawThree = function() {
    
 
    fill(255, 255, 255);
-   text("Clam", width/2+30, height - gTextOffset);
+   text("Calm", width/2+30, height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 3 from the array
