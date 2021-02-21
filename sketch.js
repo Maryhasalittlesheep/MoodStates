@@ -26,6 +26,7 @@ function preload() {
   images[2] = loadImage('assets/calm.png');
   images[3] = loadImage('assets/craving.png');
   images[4] = loadImage('assets/happy.png');
+  images[5] = loadImage('assets/splash.png');
 }
 
 // Center drawing, drawFunction will be one for default
@@ -38,7 +39,7 @@ function setup() {
   textSize(24);
 
   // set to one for startup
-  drawFunction = drawOne;
+  drawFunction = drawSplash;
 }
 
 // Very simple, sets the background color and calls your state machine function
@@ -53,6 +54,11 @@ function draw() {
 }
 
 //========= TEMPLATE: modify these functions, INSIDE the function blocks only =========
+
+//-- drawSplash() will draw the image at index 4 from the array
+drawSplash = function() {
+   image(images[5],width/2, height/2);
+}
 
 //-- drawOne() will draw the image at index 0 from the array
 drawOne = function() {
@@ -72,7 +78,7 @@ drawTwo = function() {
 
    fill(255, 255, 255);
    text("Sleepy", width/2+30, height - gTextOffset);
-}
+
 
 //-- drawOne() will draw the image at index 2 from the array
 drawThree = function() {
@@ -104,24 +110,38 @@ drawFive = function() {
    text("Happy", width/2+30, height - gTextOffset);
 }
 
-
 //========= TEMPLATE: add or change interface functions, as you like =========
 
 // Change the drawFunction variable based on your interaction
 function keyTyped() {
+  if( drawFunction === drawSplash ) {
+    return;
+  }
+
   if( key === '1' ) {
-  	drawFunction = drawOne;
+    drawFunction = drawOne;
   }
   else if( key === '2' ) {
-  	drawFunction = drawTwo;
+    drawFunction = drawTwo;
   }
   else if( key === '3' ) {
-  	drawFunction = drawThree;
+    drawFunction = drawThree;
   }
   else if( key === '4' ) {
-  	drawFunction = drawFour;
+    drawFunction = drawFour;
   }
   else if( key === '5' ) {
-  	drawFunction = drawFive;
+    drawFunction = drawFive;
+  }
+
+  else if( key === 's' ) {
+    drawFunction = drawSplash;
+  }
+}
+
+function mousePressed() {
+  // only change state if we are in splash screen
+  if( drawFunction === drawSplash ) {
+    drawFunction = drawOne;
   }
 }
