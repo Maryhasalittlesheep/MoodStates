@@ -64,7 +64,7 @@ drawSplash = function() {
   background(0);
    image(images[5],width/2, height/2);
 
-   fill(0);
+   fill(255,255,255);
    text("Click to go to instruction page", width/2+30, height - gTextOffset);
 }
 
