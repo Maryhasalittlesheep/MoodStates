@@ -13,6 +13,10 @@
 // Array of images
 var images = [];
 
+var instructions = [];
+
+var lineHeight =　24;
+
 // variable that is a function 
 var drawFunction;
 
@@ -40,6 +44,9 @@ function setup() {
 
   // set to one for startup
   drawFunction = drawSplash;
+
+   // Array for instruction
+  loadArray();
 }
 
 // Very simple, sets the background color and calls your state machine function
@@ -48,16 +55,25 @@ function draw() {
 
   // will call your state machine function
   drawFunction();
-
-  // print text on screen
-  text("Press 1-5 to change mood", width/2+30, height - gTextOffset - 40);
 }
 
 //========= TEMPLATE: modify these functions, INSIDE the function blocks only =========
 
 //-- drawSplash() will draw the image at index 4 from the array
 drawSplash = function() {
+  background(0);
    image(images[5],width/2, height/2);
+
+   fill(0);
+   text("Click to go to instruction page", width/2+30, height - gTextOffset);
+}
+
+// -- drawInstruction() wiil print the instruction text 
+drawInstruction = function(){
+  fill(0);
+  for( let i = 0 ; i < instructions.length; i++) {
+      text( instructions[i], width/2, 200 + (i * lineHeight));
+  }
 }
 
 //-- drawOne() will draw the image at index 0 from the array
@@ -78,7 +94,7 @@ drawTwo = function() {
 
    fill(255, 255, 255);
    text("Sleepy", width/2+30, height - gTextOffset);
-
+}
 
 //-- drawOne() will draw the image at index 2 from the array
 drawThree = function() {
@@ -137,11 +153,27 @@ function keyTyped() {
   else if( key === 's' ) {
     drawFunction = drawSplash;
   }
+
+  else if( key === 'i' ) {
+    drawFunction = drawInstruction;
+  }
 }
 
 function mousePressed() {
   // only change state if we are in splash screen
   if( drawFunction === drawSplash ) {
-    drawFunction = drawOne;
+    drawFunction = drawInstruction;
   }
+}
+
+function loadArray(){
+  instructions[0] = "Welcome to Mary's Mood States"
+  instructions[1] = "Press 1-5 to change mood"
+  instructions[2] = "Press 1 for Stress"
+  instructions[3] = "Press 2 for Sleepy"
+  instructions[4] = "Press 3 for Clam"
+  instructions[5] = "Press 4 for Craving"
+  instructions[6] = "Press 5 for Happy"
+  instructions[7] = "Press S for Splash screen"
+  instructions[8] = "Press i for Intruction screen"
 }
